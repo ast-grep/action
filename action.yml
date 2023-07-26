@@ -12,4 +12,4 @@ outputs:
     description: 'The exit code of `sg scan`. 0 if no errors found.'
 runs:
   using: 'node16'
-  main: 'index.js'
+  main: 'dist/index.js'
