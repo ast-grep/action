@@ -4,6 +4,7 @@
   "description": "A GH Action to run ast-grep rules",
   "main": "index.js",
   "scripts": {
+    "build": "tsc && ncc build out/index.js --license LICENSE",
     "format": "prettier --write src",
     "check": "tsc --noEmit"
   },
@@ -15,6 +16,7 @@
     "@actions/exec": "^1.1.1"
   },
   "devDependencies": {
+    "@vercel/ncc": "^0.36.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
