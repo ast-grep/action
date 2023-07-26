@@ -1,7 +1,15 @@
 name: 'ast-grep GH Action'
 description: 'A GH Action to run ast-grep rules'
 inputs:
+  version:
+    description: 'The version of ast-grep to use in the action'
+    default: ''
+  config:
+    description: "The file path to ast-grep's project config relative to root dir"
+    default: ''
 outputs:
+  exitCode:
+    description: 'The exit code of `sg scan`. 0 if no errors found.'
 runs:
   using: 'node16'
   main: 'index.js'

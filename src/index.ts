@@ -1,12 +1,20 @@
 import core from '@actions/core'
+import exec from '@actions/exec'
 
-try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet')
-  console.log(`Hello ${nameToGreet}!`)
-  const time = new Date().toTimeString()
-  core.setOutput('time', time)
-} catch (error) {
+async function main() {
+  const version = core.getInput('version')
+  if (version) {
+    await exec.exec('npm', ['install', `@ast-grep/cli@${version}`, '--global'])
+  } else {
+    await exec.exec('npm', ['install', '@ast-grep/cli', '--global'])
+  }
+  const config = core.getInput('config')
+  const args = config ? ['scan', '-c', config] : ['scan']
+  const code = await exec.exec('ast-grep', args)
+  core.setOutput('exitCode', code)
+}
+
+main().catch(error => {
   if (error instanceof Error) {
     core.setFailed(error.message)
   } else if (typeof error === 'string') {
@@ -14,4 +22,4 @@ try {
   } else {
     core.setFailed('unknown error')
   }
-}
+})
