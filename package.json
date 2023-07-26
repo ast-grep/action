@@ -1,0 +1,26 @@
+{
+  "name": "@ast-grep/github-action",
+  "version": "1.0.0",
+  "description": "A GH Action to run ast-grep rules",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write src",
+    "check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.1.1"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6"
+  },
+  "lint-staged": {
+    "*": "prettier --write"
+  }
+}

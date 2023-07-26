@@ -1,0 +1,7 @@
+name: 'ast-grep GH Action'
+description: 'A GH Action to run ast-grep rules'
+inputs:
+outputs:
+runs:
+  using: 'node16'
+  main: 'index.js'
