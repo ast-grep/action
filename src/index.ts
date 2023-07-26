@@ -1,5 +1,5 @@
-import core from '@actions/core'
-import exec from '@actions/exec'
+import * as core from '@actions/core'
+import * as exec from '@actions/exec'
 
 async function main() {
   const version = core.getInput('version')
@@ -9,7 +9,7 @@ async function main() {
     await exec.exec('npm', ['install', '@ast-grep/cli', '--global'])
   }
   const config = core.getInput('config')
-  const args = config ? ['scan', '-c', config] : ['scan']
+  const args = config ? ['scan', '-c', config, '-f', 'github'] : ['scan', '-f', 'github']
   const code = await exec.exec('ast-grep', args)
   core.setOutput('exitCode', code)
 }
