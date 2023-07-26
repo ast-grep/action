@@ -1,8 +1,8 @@
-id: test-rule
-message: Add your rule message here....
-severity: error # error, warning, hint, info
+id: ast-grep-lint
+message: My first ast-grep lint from GitHub Action!
+severity: info # error, warning, info, hint
 language: TypeScript
 rule:
   pattern: await exec.exec($$$)
 # utils: Extract repeated rule as local utility here.
-# note: Add detailed explanation for the rule.
+note: This is the detailed explanation for this rule.
