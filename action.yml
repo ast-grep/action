@@ -1,5 +1,6 @@
 name: 'ast-grep GH Action'
-description: 'A GH Action to run ast-grep rules'
+author: HerringtonDarkholme
+description: 'A GH Action to run ast-grep custom rules'
 inputs:
   version:
     description: 'The version of ast-grep to use in the action'
@@ -13,3 +14,6 @@ outputs:
 runs:
   using: 'node16'
   main: 'dist/index.js'
+branding:
+  icon: 'zap'
+  color: 'blue'
