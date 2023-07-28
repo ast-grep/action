@@ -8,9 +8,6 @@ inputs:
   config:
     description: "The file path to ast-grep's project config relative to root dir"
     default: ''
-outputs:
-  exitCode:
-    description: 'The exit code of `sg scan`. 0 if no errors found.'
 runs:
   using: 'node16'
   main: 'dist/index.js'

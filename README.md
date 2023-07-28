@@ -15,17 +15,39 @@ A GitHub Action to run [ast-grep](https://ast-grep.github.io/) [linting](https:/
 
 **Optional** The file path to ast-grep's project config relative to root dir. Default is `sgconfig.yml`.
 
-
-## Outputs
-
-### `exitCode`
-
-The exit code of `sg scan`. 0 if no errors found.
-
 ## Example usage
 
+### Basic
+
 ```yaml
-uses: ast-grep/action
-with:
-  config: sgconfig.yml
+on: [push]
+
+jobs:
+  sg-lint:
+    runs-on: ubuntu-latest
+    name: Run ast-grep lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: ast-grep lint step
+        uses: ast-grep/action@v1.1
+```
+
+### Advanced
+
+```yaml
+on: [push]
+
+jobs:
+  sg-lint:
+    runs-on: ubuntu-latest
+    name: Run ast-grep lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: ast-grep lint step
+        uses: ast-grep/action@v1.1
+        with:
+          version: 0.9.2
+          config: sgconfig.yml
 ```

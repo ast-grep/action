@@ -3962,32 +3962,20 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
 const exec = __importStar(__nccwpck_require__(514));
-function main() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const version = core.getInput('version');
-        if (version) {
-            yield exec.exec('npm', ['install', `@ast-grep/cli@${version}`, '--global']);
-        }
-        else {
-            yield exec.exec('npm', ['install', '@ast-grep/cli', '--global']);
-        }
-        const config = core.getInput('config');
-        const args = config ? ['scan', '-c', config, '-f', 'github'] : ['scan', '-f', 'github'];
-        const code = yield exec.exec('ast-grep', args);
-        core.setOutput('exitCode', code);
-    });
+async function main() {
+    const version = core.getInput('version');
+    if (version) {
+        await exec.exec('npm', ['install', `@ast-grep/cli@${version}`, '--global']);
+    }
+    else {
+        await exec.exec('npm', ['install', '@ast-grep/cli', '--global']);
+    }
+    const config = core.getInput('config');
+    const args = config ? ['scan', '-c', config, '-f', 'github'] : ['scan', '-f', 'github'];
+    await exec.exec('ast-grep', args);
 }
 main().catch(error => {
     if (error instanceof Error) {

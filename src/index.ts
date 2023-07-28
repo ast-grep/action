@@ -10,8 +10,7 @@ async function main() {
   }
   const config = core.getInput('config')
   const args = config ? ['scan', '-c', config, '-f', 'github'] : ['scan', '-f', 'github']
-  const code = await exec.exec('ast-grep', args)
-  core.setOutput('exitCode', code)
+  await exec.exec('ast-grep', args)
 }
 
 main().catch(error => {
