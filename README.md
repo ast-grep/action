@@ -4,6 +4,7 @@ A GitHub Action to run [ast-grep](https://ast-grep.github.io/) [linting](https:/
 
 ![image](https://github.com/ast-grep/action/assets/2883231/52fe5914-5e43-4478-a7b2-fb0399f61dee)
 
+See a more detailed setup guide in [ast-grep's tooling guide](https://ast-grep.github.io/guide/tooling-overview.html#use-ast-grep-in-github-action).
 
 ## Inputs
 
