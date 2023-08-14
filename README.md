@@ -31,7 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: ast-grep lint step
-        uses: ast-grep/action@v1.1
+        uses: ast-grep/action@v1.2
 ```
 
 ### Advanced
@@ -47,7 +47,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: ast-grep lint step
-        uses: ast-grep/action@v1.1
+        uses: ast-grep/action@v1.2
         with:
           version: 0.9.2
           config: sgconfig.yml
