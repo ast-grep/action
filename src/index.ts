@@ -9,7 +9,9 @@ async function main() {
     await exec.exec('npm', ['install', '@ast-grep/cli', '--global'])
   }
   const config = core.getInput('config')
-  const args = config ? ['scan', '-c', config, '--format', 'github'] : ['scan', '--format', 'github']
+  const args = config
+    ? ['scan', '-c', config, '--format', 'github']
+    : ['scan', '--format', 'github']
   await exec.exec('ast-grep', args)
 }
 
