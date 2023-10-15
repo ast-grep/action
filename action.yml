@@ -9,7 +9,7 @@ inputs:
     description: "The file path to ast-grep's project config relative to root dir"
     default: ''
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   icon: 'zap'
