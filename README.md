@@ -29,7 +29,7 @@ jobs:
     name: Run ast-grep lint
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: ast-grep lint step
         uses: ast-grep/action@latest
 ```
@@ -45,10 +45,10 @@ jobs:
     name: Run ast-grep lint
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: ast-grep lint step
         uses: ast-grep/action@latest
         with:
-          version: 0.9.2
+          version: 0.17.1
           config: sgconfig.yml
 ```
