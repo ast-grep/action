@@ -51,4 +51,5 @@ jobs:
         with:
           version: 0.17.1
           config: sgconfig.yml
+          paths: src lib
 ```
