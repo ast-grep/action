@@ -16,6 +16,11 @@ See a more detailed setup guide in [ast-grep's tooling guide](https://ast-grep.g
 
 **Optional** The file path to ast-grep's project config relative to root dir. Default is `sgconfig.yml`.
 
+### `paths`
+
+**Optional** File paths string, corresponding to `PATHS` passed to the ast-grep cli, to limit the paths the action runs on.
+Multiple file paths can be delimited by whitespaces.
+
 ## Example usage
 
 ### Basic
