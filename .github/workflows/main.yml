@@ -10,8 +10,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: ast-grep lint step
-        id: hello
+        id: basic
         uses: ./ # Uses an action in the root directory
-      # Use the output from the `hello` step
+      # Use the output from the `basic` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.exitCode }}"
+        run: echo "The time was ${{ steps.basic.outputs.exitCode }}"
+      - name: ast-grep lint step
+        id: advanced
+        uses: ./ # Uses an action in the root directory
+        with:
+          config: sgconfig.yml
+          paths: src
+      # Use the output from the `advanced` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.advanced.outputs.exitCode }}"
