@@ -8,6 +8,8 @@ inputs:
   config:
     description: "The file path to ast-grep's project config relative to root dir"
     default: ''
+  paths:
+    description: "Whitespace-delimited paths to lint"
 runs:
   using: 'node20'
   main: 'dist/index.js'
