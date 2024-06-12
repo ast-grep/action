@@ -558,7 +558,7 @@ class OidcClient {
                 .catch(error => {
                 throw new Error(`Failed to get ID Token. \n 
         Error Code : ${error.statusCode}\n 
-        Error Message: ${error.result.message}`);
+        Error Message: ${error.message}`);
             });
             const id_token = (_a = res.result) === null || _a === void 0 ? void 0 : _a.value;
             if (!id_token) {
@@ -3974,9 +3974,18 @@ async function main() {
         await exec.exec('npm', ['install', '@ast-grep/cli', '--global']);
     }
     const config = core.getInput('config');
-    const args = config
-        ? ['scan', '-c', config, '--format', 'github']
-        : ['scan', '--format', 'github'];
+    const paths = core.getInput('paths');
+    const args = ['scan'];
+    if (config) {
+        args.push('-c', config);
+    }
+    args.push('--format', 'github');
+    if (paths) {
+        // GitHub actions doesn't support a YAML list, so use a string
+        // https://stackoverflow.com/questions/75420197/how-to-use-array-input-for-a-custom-github-actions
+        // and allow for escaped whitespace
+        args.push(...paths.split(/(?<!\\)\s+/));
+    }
     await exec.exec('ast-grep', args);
 }
 main().catch(error => {
